@@ -8,9 +8,29 @@
   --yellow: #ffc107;
   --grey: #e1e8eb;
 }
+#header {
+  position: sticky;
+  top: 0;
+}
+.container > div > h1 {
+  margin-left: 3rem;
+}
 .imgExamples {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width: 600px) {
+  .imgExamples > img {
+    width: 0px;
+  }
+  .form > form {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .btns-social {
+    display: flex;
+    direction: column;
+  }
 }
 .bg-black-me {
   background-color: var(--black);
