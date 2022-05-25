@@ -36,30 +36,20 @@
     </section>
   <section class="form">
     <!-- Section form-->
-    <form>
+    <form id="form">
   <div class="mb-3">
-    <label for="exampleInputX0" class="form-label" placeholder="Ingresa tu nombre" required>Add initial value x<sub>0</sub> </label>
-    <input type="number" class="form-control">
+    <label for="exampleInputX0" class="form-label" required>Add initial value x<sub>0</sub> </label>
+    <input type="number" class="form-control" id="initial-value">
     <div id="emailHelp" class="form-text">Remember that the initial value must be close to the root to be found.</div>
   </div>
     <div class="mb-3">
-    <label for="exampleInputFx" class="form-label">Add function f(x)</label>
-   <input type="text" class="form-control">
+    <label for="exampleInputE" class="form-label" required >Add error rate E<sub>p</sub> </label>
+    <input type="number" class="form-control" step="0.001" id="errorRate">
   </div>
-    <div class="mb-3">
-    <label for="exampleInputFx1" class="form-label">Add the first derivative f(x)'</label>
-    <input type="text" class="form-control">
-    <div id="emailHelp" class="form-text">You can find the first derivative <a href="https://www.derivative-calculator.net/" target="_blank">here</a>.</div>
-  </div>
-      <div class="mb-3">
-    <label for="exampleInputFx2" class="form-label">Add the second derivativef(x)''</label>
-    <input type="text" class="form-control">
-    <div id="emailHelp" class="form-text">You can find the second derivative <a href="https://www.derivative-calculator.net/" target="_blank">here</a>.</div>
-  </div>
-  <button type="submit" class="btn btn-success">Calcular</button>
+  <button type="submit" class="btn btn-success">Calculate</button>
 </form>
   </section>
-  <section>
+  <section class="table" id="table">
     <!--Section table results-->
   </section>
   </main>
@@ -90,7 +80,7 @@
   <!-- Section: Social media -->
 
   <!-- Section: Links  -->
-  <section class="">
+  <section>
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
       <div class="row mt-3">
