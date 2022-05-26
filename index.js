@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
       return Math.pow(xi, 3) - 5 * Math.pow(xi, 2) + 7 * xi - 3;
     }
     // F(x)' = 3x^2-10x+7
-    function calcFx1(x1) {
-      return 3 * Math.pow(x1, 2) - 10 * x1 + 7;
+    function calcFx1(xi) {
+      return 3 * Math.pow(xi, 2) - 10 * xi + 7;
     }
     //F(x)' = 6x-10
-    function calcFx2(x1) {
-      return 6 * x1 - 10;
+    function calcFx2(xi) {
+      return 6 * xi - 10;
     }
     //xiNext xi+1
     //Xi+1
