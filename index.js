@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
           (Math.pow(calcFx1(x1), 2) - (calcFx(x1) * calcFx2(x1)))
       );
     }
+    // errorP = (xi-xi-1)/xi 
     function calcEP(xC, xB) {
       return Math.abs((xC - xB) / xC) * 100;
     }
@@ -35,38 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let i = 1; //Iteraciones
     let xBefore = 0; //x Anterior
     while (errorCurrent > error) {
-      console.log("Iteracion N°", i);
-      console.log("Antes del cambio");
-      console.log(calcFx(xCurrent), "Fx", xCurrent);
-      console.log(calcFx1(xCurrent), "Fx1", xCurrent);
-      console.log(calcFx2(xCurrent), "Fx2", xCurrent);
-      console.log("Cambio");
+      console.log("Iteracion N°", i); // Number of Iterations
+      calcFx(xCurrent); //Evaluate in Fx
+      calcFx1(xCurrent); //Evaluate in Fx'
+      calcFx2(xCurrent); // Evaluate in Fx''
       if (i != 1) {
-        errorCurrent = calcEP(xCurrent, xBefore);
-        console.log(errorCurrent, "Error Actual");
+      errorCurrent = calcEP(xCurrent, xBefore); // Calculate error
       }
-      xNext = calcXNext(xCurrent);
-      xBefore = xCurrent;
-      xCurrent = xNext;
-      console.log("Despues del cambio");
-      console.log(xNext, "Valor siguiente");
-      console.log(xBefore, "Valor Anterior");
-      console.log(xCurrent, "Valor Actual");
-      /*       calcFx(xCurrent);
-      calcFx1(xCurrent);
-      calcFx2(xCurrent);
-      xNext = calcXNext(xCurrent);
-      xBefore = xCurrent;
-      xCurrent = xNext; */
-
-      /*       console.log(calcFx(xCurrent), " Eval fx");
-      console.log(calcFx1(xCurrent), " Eval fx1");
-      console.log(calcFx2(xCurrent), "Eval fx2");
-      xNext = calcXNext(xCurrent);
-      console.log(xCurrent, " Current");
-      console.log(xNext, " Next");
-      console.log(error, "Error Rate"); */
-
+      xNext = calcXNext(xCurrent); // Calculate xNext
+      xBefore = xCurrent; // Assign xCurrent to xBefore 
+      xCurrent = xNext; // Assign xNext to x Current
       i++;
     }
   });
