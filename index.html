@@ -34,7 +34,7 @@
       <img src="./img/ex2.png" alt="">
       <img src="./img/ex3.png" alt="">
     </section>
-  <section class="form">
+  <section class="form bg-black-me">
     <!-- Section form-->
     <form id="form">
   <div class="mb-3">
@@ -44,13 +44,27 @@
   </div>
     <div class="mb-3">
     <label for="exampleInputE" class="form-label" required >Add error rate E<sub>p</sub> </label>
-    <input type="number" class="form-control" step="0.001" id="errorRate">
+    <input type="number" class="form-control" step="0.000001" id="errorRate">
   </div>
   <button type="submit" class="btn btn-success">Calculate</button>
 </form>
   </section>
-  <section class="table" id="table">
+  <section class="table">
     <!--Section table results-->
+    <table id="resultsTable">
+      <thead>    
+        <tr>
+          <th scope="col">Iteraciones</th>
+          <th scope="col">X<sub>i</sub></th>
+          <th scope="col">F(x<sub>i</sub>)</th>
+          <th scope="col">F(x<sub>i</sub>)'</th>
+          <th scope="col">F(x<sub>i</sub>)''</th>
+          <th scope="col">Error %</th> 
+        </tr>
+      </thead>
+      <tbody class="bodyTable">
+      </tbody>
+    </table>
   </section>
   </main>
     <!-- Footer -->

@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
+    const resultsTable = document.getElementById("resultsTable");
+    const bodyTable = document.getElementById("bodyTable");
     const initValue = document.getElementById("initial-value");
     const errorRate = document.getElementById("errorRate");
     let xCurrent = initValue.value; // xCurrent = xi
@@ -35,18 +37,36 @@ document.addEventListener("DOMContentLoaded", function () {
     let errorCurrent = 1; // 100%
     let i = 1; //Iteraciones
     let xBefore = 0; //x Anterior
-    while (errorCurrent > error) {
+    while (errorCurrent >= error) {
       console.log("Iteracion N°", i); // Number of Iterations
       calcFx(xCurrent); //Evaluate in Fx
       calcFx1(xCurrent); //Evaluate in Fx'
       calcFx2(xCurrent); // Evaluate in Fx''
-      if (i != 1) {
+      if (i !== 1) {
       errorCurrent = calcEP(xCurrent, xBefore); // Calculate error
       }
       xNext = calcXNext(xCurrent); // Calculate xNext
       xBefore = xCurrent; // Assign xCurrent to xBefore 
       xCurrent = xNext; // Assign xNext to x Current
+      createRow(i,xCurrent,calcFx(xCurrent),calcFx1(xCurrent),calcFx2(xCurrent),errorCurrent);
       i++;
+    }
+    // Results Table
+    function createRow(i,xi, fx, fx1,fx2,error){
+      let newTableRow = resultsTable.insertRow(-1);
+      let newTableCell = newTableRow.insertCell(0);
+      newTableCell.textContent = `${i}`
+      newTableCell = newTableRow.insertCell(1);
+      newTableCell.textContent = `${xi}`
+      newTableCell = newTableRow.insertCell(2);
+      newTableCell.textContent = `${fx}`
+      newTableCell = newTableRow.insertCell(3);
+      newTableCell.textContent = `${fx1}`
+      newTableCell = newTableRow.insertCell(4);
+      newTableCell.textContent = `${fx2}`
+      newTableCell = newTableRow.insertCell(5);
+      newTableCell.textContent = `${error}`
+
     }
   });
 });
